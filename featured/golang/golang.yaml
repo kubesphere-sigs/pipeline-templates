@@ -1,0 +1,89 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterTemplate
+metadata:
+  name: golang
+  annotations:
+    devops.kubesphere.io/displayNameEN: &defaultDisplayName "Golang"
+    devops.kubesphere.io/displayNameZH: "Golang"
+    devops.kubesphere.io/descriptionEN: &defaultDescription ""
+    devops.kubesphere.io/descriptionZH: "适用于 Golang 项目"
+    devops.kubesphere.io/displayName: *defaultDisplayName
+    devops.kubesphere.io/description: *defaultDescription
+spec:
+  parameters:
+    - name: CloneURL
+      description: The URL you want to clone
+      required: true
+      default: https://github.com/johnniang/go-sample
+    - name: CloneRevision
+      description: Which revision you want to checkout from
+      required: true
+      default: main
+    - name: GolangDockerImage
+      description: Docker image of Golang. Refer to https://hub.docker.com/_/golang
+      default: "golang:1.17"
+      required: true
+    - name: DependencyDownloadScript
+      description: Shell script for depedency download.
+      default: "go mod download"
+      required: true
+    - name: TestScript
+      description: Shell script for testing.
+      default: "go test ./..."
+      required: true
+    - name: BuildScript
+      description: Shell script for building.
+      default: "go build -o service ./..."
+      required: true
+    - name: ArtifactsLocation
+      description: Artifacts location. e.g. service or dist/.
+      default: "service"
+      required: true
+
+  template: |
+    pipeline {
+      agent {
+        kubernetes {
+          inheritFrom 'go'
+          containerTemplate {
+            name 'go'
+            image '{{.params.GolangDockerImage}}'
+          }
+        }
+      }
+      stages {
+        stage('Clone repository') {
+          steps {
+            checkout([$class: 'GitSCM', branches: [[name: '{{.params.CloneRevision}}']], 
+                extensions: [[$class: 'CloneOption', depth: 1, shallow: true]], userRemoteConfigs: [[url: '{{.params.CloneURL}}']]
+            ])
+          }
+        }
+        stage('Download dependencies') {
+          steps {
+            container('go') {
+              sh '''{{.params.DependencyDownloadScript}}'''
+            }
+          }
+        }
+        stage('Run test') {
+          steps {
+            container('go') {
+              sh '''{{.params.TestScript}}'''
+            }
+          }
+        }
+        stage('Run build') {
+          steps {
+            container('go') {
+              sh '''{{.params.BuildScript}}'''
+            }
+          }
+        }
+        stage('Archive artifacts') {
+          steps {
+            archiveArtifacts '{{.params.ArtifactsLocation}}'
+          }
+        }
+      }
+    }
