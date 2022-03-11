@@ -3,12 +3,11 @@ kind: ClusterTemplate
 metadata:
   name: nodejs
   annotations:
-    devops.kubesphere.io/displayNameEN: &defaultDisplayName "Node.js"
+    devops.kubesphere.io/displayNameEN: "Node.js"
     devops.kubesphere.io/displayNameZH: "Node.js"
-    devops.kubesphere.io/descriptionEN: &defaultDescription "Designed for the continuous integration of most Node.js projects, including dependency downloading, testing, building, and artifact archiving."
+    devops.kubesphere.io/descriptionEN: "Designed for the continuous integration of most Node.js projects, including dependency downloading, testing, building, and artifact archiving."
     devops.kubesphere.io/descriptionZH: "专为大多数 Node.js 项目的持续集成而设计，包括依赖下载、测试、构建和归档。"
-    devops.kubesphere.io/displayName: *defaultDisplayName
-    devops.kubesphere.io/description: *defaultDescription
+    devops.kubesphere.io/icon: "nodejs.svg"
 spec:
   parameters:
     - name: CloneURL
