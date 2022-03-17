@@ -10,14 +10,14 @@ metadata:
     devops.kubesphere.io/icon: "maven.svg"
 spec:
   parameters:
-    - name: CloneURL
-      description: The URL you want to clone
+    - name: GitRepository
+      description: The Git repository you want to clone
       required: true
-      default: https://github.com/johnniang/maven-sample
-    - name: CloneRevision
+      default: https://github.com/kubesphere-sigs/demo-java
+    - name: GitRevision
       description: Which revision you want to checkout from
       required: true
-      default: main
+      default: master
     - name: MavenDockerImage
       description: Docker image of Maven. Refer to https://hub.docker.com/_/maven
       default: "maven:3.8.4-jdk-11"
@@ -35,8 +35,8 @@ spec:
       default: "mvn package"
       required: true
     - name: ArtifactsLocation
-      description: Artifacts location. e.g. target/maven-sample-1.0-SNAPSHOT.jar or target/.
-      default: "target/maven-sample-1.0-SNAPSHOT.jar"
+      description: Artifacts location. e.g. target/demo-java-1.0.0.jar or target/.
+      default: "target/demo-java-1.0.0.jar"
       required: true
 
   template: |
@@ -53,8 +53,8 @@ spec:
       stages {
         stage('Clone repository') {
           steps {
-            checkout([$class: 'GitSCM', branches: [[name: '$(.params.CloneRevision)']], 
-                extensions: [[$class: 'CloneOption', depth: 1, shallow: true]], userRemoteConfigs: [[url: '$(.params.CloneURL)']]
+            checkout([$class: 'GitSCM', branches: [[name: '$(.params.GitRevision)']], 
+                extensions: [[$class: 'CloneOption', depth: 1, shallow: true]], userRemoteConfigs: [[url: '$(.params.GitRepository)']]
             ])
           }
         }
