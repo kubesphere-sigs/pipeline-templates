@@ -35,8 +35,8 @@ spec:
       default: "mvn package"
       required: true
     - name: ArtifactsLocation
-      description: Artifacts location. e.g. target/demo-java-1.0.0.jar or target/.
-      default: "target/demo-java-1.0.0.jar"
+      description: Artifacts location. e.g. target/demo-java-1.0.0.jar or target/*.jar.
+      default: "target/*.jar"
       required: true
 
   template: |
