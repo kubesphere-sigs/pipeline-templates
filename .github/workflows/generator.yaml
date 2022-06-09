@@ -1,0 +1,25 @@
+name: generator
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update readme
+        uses: linuxsuren/yaml-readme@v0.0.8
+        env:
+          GH_TOKEN: ${{ secrets.GH_SECRETS }}
+        with:
+          pattern: 'featured/*/*.yaml'
+          username: linuxsuren
+          org: kubesphere-sigs
+          repo: pipeline-templates
+          groupby: kind
