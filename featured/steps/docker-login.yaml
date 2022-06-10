@@ -1,0 +1,19 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: docker-login
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Docker login"
+    devops.kubesphere.io/descriptionEN: "Docker login"
+spec:
+  runtime: shell
+  secret:
+    type: kubernetes.io/basic-auth
+    wrap: true
+  container: base
+  parameters:
+  - name: register
+    display: 'Image register server'
+    defaultValue: docker.io
+  template: |
+    docker login {{.param.register}} -u"$USERNAMEVARIABLE" -p"$PASSWORDVARIABLE"
