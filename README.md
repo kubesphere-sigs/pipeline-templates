@@ -9,6 +9,8 @@ Template Type: ClusterStepTemplate
 
 | Name | Description |
 |---|---|
+| [Docker build &amp; push](featured/steps/docker-build-push.yaml) | Build and push an image from a Dockerfile |
+| [Docker login](featured/steps/docker-login.yaml) | Docker login |
 | [Pipeline trigger](featured/steps/pipeline-trigger.yaml) | Pipeline trigger step |
 
 Template Type: ClusterTemplate
