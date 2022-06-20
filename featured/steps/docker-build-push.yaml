@@ -1,0 +1,25 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: docker-build-push
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Docker build & push"
+    devops.kubesphere.io/descriptionEN: "Build and push an image from a Dockerfile"
+spec:
+  runtime: shell
+  container: base
+  parameters:
+  - name: context
+    display: 'Image context directory'
+    defaultValue: .
+  - name: file
+    display: 'Dockerfile path'
+    defaultValue: Dockerfile
+  - name: image
+    display: 'Image name'
+  - name: tag
+    display: 'Image tag name'
+    defaultValue: latest
+  template: |
+    docker build {{.param.context}} -t {{.param.image}}:{{.param.tag}}
+    docker push {{.param.image}}:{{.param.tag}}
