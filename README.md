@@ -21,6 +21,14 @@ Template Type: ClusterTemplate
 | [Maven](featured/pipelines/maven.yaml) | Designed for the continuous integration of most Maven projects, including dependency downloading, testing, building, and artifact archiving. |
 | [Node.js](featured/pipelines/nodejs.yaml) | Designed for the continuous integration of most Node.js projects, including dependency downloading, testing, building, and artifact archiving. |
 
+Template Type: PodTemplate
+
+| Name | Description |
+|---|---|
+| [go 1.17](featured/jenkins-agents/go-1.17.yaml) | This is a PodTemplate for the Jenkins agent with go 1.17 |
+| [go 1.18](featured/jenkins-agents/go-1.18.yaml) | This is a PodTemplate for the Jenkins agent with go 1.18 |
+| [go 1.19](featured/jenkins-agents/go-1.19.yaml) | This is a PodTemplate for the Jenkins agent with go 1.19 |
+
 
 ## Contribution
 
