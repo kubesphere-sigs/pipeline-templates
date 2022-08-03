@@ -1,3 +1,4 @@
+#!yaml-readme -p 'featured/*/*.yaml' --output README.md
 ## 实用的流水线模板
 
 这里包含一些比较实用的流水线模板。在 KubeSphere Console 编辑一个新的流水线时，我们可以选择合适的模板来填充流水线脚本。
