@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: PodTemplate
+metadata:
+  name: go19
+  namespace: kubesphere-devops-worker
+  labels:
+    jenkins.agent.pod: 'true'
+  annotations:
+    jenkins.agent.labels: "go"
+    inherit.from: "base"
+    devops.kubesphere.io/displayNameEN: 'go 1.19'
+    devops.kubesphere.io/descriptionEN: 'This is a PodTemplate for the Jenkins agent with go 1.19'
+template:
+  metadata:
+    name: go19
+  spec:
+    volumes:
+      - name: docker
+        hostPath:
+          path: /var/run/docker.sock
+      - name: gocache
+        hostPath:
+          path: /var/data/jenkins_go_cache
+      - name: sonarcache
+        hostPath:
+          path: /var/data/jenkins_sonar_cache
+    containers:
+      - name: go
+        image: golang:1.19.0
+        command: ["cat"]
+        args: [""]
+        volumeMounts:
+          - name: docker
+            mountPath: /var/run/docker.sock
+          - name: gocache
+            mountPath: /home/jenkins/go/pkg
+          - name: sonarcache
+            mountPath: /root/.sonar/cache
