@@ -2,23 +2,62 @@ apiVersion: devops.kubesphere.io/v1alpha3
 kind: ClusterStepTemplate
 metadata:
   name: pipeline-trigger
+  labels:
+    step.devops.kubesphere.io/category: "general"
   annotations:
     devops.kubesphere.io/displayNameEN: "Pipeline trigger"
     devops.kubesphere.io/descriptionEN: "Pipeline trigger step"
+    step.devops.kubesphere.io/icon: "terminal"
 spec:
   runtime: dsl
   parameters:
   - name: quietPeriod
+    type: number
     display: 'Quiet period'
-    defaultValue: true
+    defaultValue: "0"
   - name: wait
+    type: bool
     display: 'Wait for completion'
-    defaultValue: true
+    defaultValue: "true"
   - name: propagate
+    type: bool
     display: 'Propagate errors'
-    defaultValue: true
+    defaultValue: "true"
   - name: job
+    type: string
     display: 'Target Pipeline name'
     required: true
   template: |
-    build quietPeriod: {{.param.quietPeriod}}, wait: {{.param.wait}}, propagate: {{.param.propagate}}, job: '{{.param.job}}'
+    {
+      "arguments": [
+        {
+          "key": "quietPeriod",
+          "value": {
+            "isLiteral": true,
+            "value": {{.param.quietPeriod}}
+          }
+        },
+        {
+          "key": "wait",
+          "value": {
+            "isLiteral": true,
+            "value": {{.param.wait}}
+          }
+        },
+        {
+          "key": "propagate",
+          "value": {
+            "isLiteral": true,
+            "value": {{.param.propagate}}
+          }
+        },
+        {
+          "key": "job",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.job}}"
+          }
+        }
+      ],
+      "name": "build"
+    }

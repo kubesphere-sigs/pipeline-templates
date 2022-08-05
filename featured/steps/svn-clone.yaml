@@ -1,0 +1,39 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: svn-clone
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "SVN Clone"
+    devops.kubesphere.io/descriptionEN: "SVN Clone"
+    step.devops.kubesphere.io/icon: "svn"
+spec:
+  runtime: dsl
+  parameters:
+    - name: url
+      type: string
+      display: 'SVN URL'
+    - name: secret
+      type: string
+      display: 'Secret'
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "scm",
+          "value": {
+            "isLiteral": false,
+            "value": "[$class: 'SubversionSCM', locations: [[cancelProcessOnExternalsFail: true,  credentialsId: '{{.param.secret}}', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: '{{.param.url}}']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']]"
+          }
+        },
+        {
+          "key": "poll",
+          "value": {
+            "isLiteral": true,
+            "value": false
+          }
+        }
+      ],
+      "name": "checkout"
+    }

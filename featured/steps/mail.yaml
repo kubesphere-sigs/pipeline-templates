@@ -1,0 +1,61 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: mail
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Mail"
+    devops.kubesphere.io/descriptionEN: "Send email"
+    step.devops.kubesphere.io/icon: "mail"
+spec:
+  runtime: dsl
+  parameters:
+    - name: to
+      type: string
+      display: 'Recipient'
+    - name: cc
+      type: string
+      display: 'CC'
+    - name: subject
+      type: string
+      display: 'Subject'
+      required: true
+    - name: body
+      type: text
+      display: 'Body'
+      required: true
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "to",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.to}}"
+          }
+        },
+        {
+          "key": "cc",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.cc}}"
+          }
+        },
+        {
+          "key": "subject",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.subject}}"
+          }
+        },
+        {
+          "key": "body",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.body}}"
+          }
+        }
+      ],
+      "name": "mail"
+    }

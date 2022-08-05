@@ -1,0 +1,49 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: timeout
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Timeout"
+    devops.kubesphere.io/descriptionEN: "Executes the code inside the block with a determined time out limit."
+    step.devops.kubesphere.io/icon: "clock"
+spec:
+  runtime: dsl
+  parameters:
+    - name: unit
+      type: enum
+      defaultValue: 'SECONDS'
+      options: '[{"label":"Minutes","value":"MINUTES"},{"label":"Seconds","value":"SECONDS"},{"label":"Hours","value":"HOURS"}]'
+      display: 'Unit'
+    - name: time
+      type: number
+      display: 'Time'
+  template: |
+    {
+      "name": "timeout",
+      "arguments": [
+        {
+          "key": "unit",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.unit}}"
+          }
+        },
+        {
+          "key": "activity",
+          "value": {
+            "isLiteral": true,
+            "value": true
+          }
+        },
+        {
+          "key": "time",
+          "value": {
+            "isLiteral": true,
+            "value": {{.param.time}}
+          }
+        }
+      ],
+      "children": []
+    }

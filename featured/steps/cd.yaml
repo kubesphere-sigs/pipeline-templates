@@ -1,0 +1,67 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: cd
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "CD"
+    devops.kubesphere.io/descriptionEN: "Update image information using continuous deployment."
+    step.devops.kubesphere.io/icon: "rocket"
+spec:
+  runtime: dsl
+  parameters:
+    - name: application
+      type: string
+      display: 'Continuous Deployments'
+      required: true
+    - name: branch
+      type: string
+      display: 'Branch'
+      required: true
+    - name: originalName
+      type: string
+      display: 'Original Image Address'
+      required: true
+    - name: newImageName
+      type: string
+      required: true
+      display: 'New Image Address'
+    - name: newImageTag
+      type: string
+      display: 'New Image Tag'
+    - name: secret
+      type: secret
+      display: 'Credential'
+      required: true
+  template: |
+    {
+      "arguments": {
+        "isLiteral": true,
+        "value": "base"
+      },
+      "children": [
+        {
+          "arguments": {
+            "isLiteral": false,
+            "value": "${[usernamePassword(credentialsId : '{{.param.secret}}' ,passwordVariable : 'PASS' ,usernameVariable : 'USER')]}"
+          },
+          "children": [
+            {
+              "arguments": [
+                {
+                  "key": "script",
+                  "value": {
+                    "isLiteral": true,
+                    "value": "ks app update --app-name {{.param.application.name}} \\\n --app-namespace {{.param.application.namespace}} \\\n --name {{.param.originalName}} \\\n --newName {{.param.newName}} \\\n --git-password $PASS --git-username=$USER \\\n --git-target-branch {{.param.branch}}"
+                  }
+                }
+              ],
+              "name": "sh"
+            }
+          ],
+          "name": "withCredentials"
+        }
+      ],
+      "name": "container"
+    }

@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: waitfor-qauality-gate
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "waitForQualityGate"
+    devops.kubesphere.io/descriptionEN: "Executed after performing code analysis"
+    step.devops.kubesphere.io/icon: "terminal"
+    step.devops.kubesphere.io/tip: "Code quality check standards are derived from SonarQube's Quality Gate. If you need to customize the standards, go to SonarQube settings."
+spec:
+  runtime: dsl
+  parameters:
+    - name: abortPipeline
+      type: bool
+      display: 'SonarQube Config Name'
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "abortPipeline",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.abortPipeline}}"
+          }
+        }
+      ],
+      "name": "waitForQualityGate"
+    }

@@ -2,6 +2,8 @@ apiVersion: devops.kubesphere.io/v1alpha3
 kind: ClusterStepTemplate
 metadata:
   name: docker-login
+  labels:
+    step.devops.kubesphere.io/category: "container"
   annotations:
     devops.kubesphere.io/displayNameEN: "Docker login"
     devops.kubesphere.io/descriptionEN: "Docker login"
@@ -13,6 +15,7 @@ spec:
   container: base
   parameters:
   - name: register
+    type: string
     display: 'Image register server'
     defaultValue: docker.io
   template: |

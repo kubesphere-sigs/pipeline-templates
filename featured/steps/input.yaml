@@ -1,0 +1,41 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: input
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "input"
+    devops.kubesphere.io/descriptionEN: "When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review."
+    step.devops.kubesphere.io/icon: "rocket"
+    step.devops.kubesphere.io/tip: "When the pipeline runs here, the task will be suspended, and the creator and @somebody can choose to continue or terminate the pipeline."
+spec:
+  runtime: dsl
+  parameters:
+    - name: message
+      type: text
+      display: 'Message'
+      required: true
+    - name: submitter
+      type: string
+      display: 'Submitter'
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "message",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.message}}"
+          }
+        },
+        {
+          "key": "submitter",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.submitter}}"
+          }
+        }
+      ],
+      "name": "input"
+    }

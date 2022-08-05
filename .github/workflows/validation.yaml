@@ -1,0 +1,33 @@
+name: Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Init Env
+        run: |
+          curl -L https://github.com/LinuxSuRen/http-downloader/releases/download/v0.0.67/hd-linux-amd64.tar.gz | tar xzv hd
+          sudo mv hd /usr/bin/hd
+          
+          hd i k3d
+          k3d cluster create
+      - name: Run Test
+        run: |
+          git clone https://github.com/kubesphere/ks-devops
+          kubectl create -f ks-devops/config/crd/bases
+
+          kubectl create namespace kubesphere-devops-worker
+          kubectl create -f featured/jenkins-agents
+          kubectl create -f featured/pipelines
+          kubectl create -f featured/steps
