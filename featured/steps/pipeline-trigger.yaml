@@ -27,10 +27,6 @@ spec:
     type: bool
     display: 'Propagate errors'
     defaultValue: "true"
-  - name: job
-    type: string
-    display: 'Target Pipeline name'
-    required: true
   template: |
     {
       "arguments": [
