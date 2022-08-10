@@ -14,12 +14,14 @@ spec:
     - name: url
       type: string
       display: 'Git URL'
+      required: true
     - name: secret
       type: string
       display: 'Secret'
     - name: branch
       type: string
       display: 'Branch'
+      defaultValue: 'master'
       required: true
   template: |
     {
