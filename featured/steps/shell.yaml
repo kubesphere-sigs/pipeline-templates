@@ -10,7 +10,6 @@ metadata:
     step.devops.kubesphere.io/icon: "terminal"
 spec:
   runtime: shell
-  container: base
   parameters:
   - name: command
     type: code
