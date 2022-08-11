@@ -16,7 +16,7 @@ spec:
       display: 'Git URL'
       required: true
     - name: secret
-      type: string
+      type: secret
       display: 'Secret'
     - name: branch
       type: string
