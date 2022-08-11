@@ -15,7 +15,7 @@ spec:
       type: string
       display: 'SVN URL'
     - name: secret
-      type: string
+      type: secret
       display: 'Secret'
   template: |
     {
