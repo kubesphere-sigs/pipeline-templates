@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: svn-clone
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "scm"
   annotations:
     devops.kubesphere.io/displayNameEN: "SVN Clone"
     devops.kubesphere.io/descriptionEN: "SVN Clone"

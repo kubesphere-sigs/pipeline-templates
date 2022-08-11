@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: input
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "review"
   annotations:
     devops.kubesphere.io/displayNameEN: "input"
     devops.kubesphere.io/descriptionEN: "When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review."

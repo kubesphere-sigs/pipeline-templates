@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: with-sonarqube-env
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "review"
   annotations:
     devops.kubesphere.io/displayNameEN: "withSonarQubeEnv"
     devops.kubesphere.io/descriptionEN: "Quickly locate potential or obvious errors in your code"

@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: waitfor-qauality-gate
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "review"
   annotations:
     devops.kubesphere.io/displayNameEN: "waitForQualityGate"
     devops.kubesphere.io/descriptionEN: "Executed after performing code analysis"

@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: git-clone
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "scm"
   annotations:
     devops.kubesphere.io/displayNameEN: "Git Clone"
     devops.kubesphere.io/descriptionEN: "Git Clone"
