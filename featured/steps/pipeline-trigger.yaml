@@ -12,7 +12,7 @@ spec:
   runtime: dsl
   parameters:
   - name: job
-    type: string
+    type: pipeline
     display: 'Target Pipeline name'
     required: true
   - name: quietPeriod

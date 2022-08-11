@@ -12,7 +12,7 @@ spec:
   runtime: dsl
   parameters:
     - name: application
-      type: string
+      type: application
       display: 'Continuous Deployments'
       required: true
     - name: branch
