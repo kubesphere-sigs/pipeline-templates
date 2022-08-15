@@ -1,0 +1,18 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: shell
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Shell"
+    devops.kubesphere.io/descriptionEN: "You can execute shell commands or windows batch commands in the build."
+    step.devops.kubesphere.io/icon: "terminal"
+spec:
+  runtime: shell
+  parameters:
+  - name: command
+    type: code
+    display: 'Shell command line'
+  template: |
+    {{.param.command}}

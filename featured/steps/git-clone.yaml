@@ -1,0 +1,66 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: git-clone
+  labels:
+    step.devops.kubesphere.io/category: "scm"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Git Clone"
+    devops.kubesphere.io/descriptionEN: "Git Clone"
+    step.devops.kubesphere.io/icon: "git"
+spec:
+  runtime: dsl
+  parameters:
+    - name: url
+      type: string
+      display: 'Git URL'
+      required: true
+    - name: secret
+      type: secret
+      display: 'Secret'
+    - name: branch
+      type: string
+      display: 'Branch'
+      defaultValue: 'master'
+      required: true
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "url",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.url}}"
+          }
+        },
+        {
+          "key": "credentialsId",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.secret}}"
+          }
+        },
+        {
+          "key": "branch",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.branch}}"
+          }
+        },
+        {
+          "key": "changelog",
+          "value": {
+            "isLiteral": true,
+            "value": true
+          }
+        },
+        {
+          "key": "poll",
+          "value": {
+            "isLiteral": true,
+            "value": false
+          }
+        }
+      ],
+      "name": "git"
+    }

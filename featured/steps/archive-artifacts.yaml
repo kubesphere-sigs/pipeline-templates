@@ -1,0 +1,37 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: archive-artifacts
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Archive artifacts"
+    devops.kubesphere.io/descriptionEN: "Archive artifacts of the build records"
+    step.devops.kubesphere.io/icon: "terminal"
+spec:
+  runtime: dsl
+  parameters:
+  - name: path
+    type: string
+    display: 'Artifacts file path'
+    required: true
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "artifacts",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.path}}"
+          }
+        },
+        {
+          "key": "followSymlinks",
+          "value": {
+            "isLiteral": true,
+            "value": false
+          }
+        }
+      ],
+      "name": "archiveArtifacts"
+    }

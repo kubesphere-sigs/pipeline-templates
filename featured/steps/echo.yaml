@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: echo
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Echo"
+    devops.kubesphere.io/descriptionEN: "Print a message"
+    step.devops.kubesphere.io/icon: "loudspeaker"
+spec:
+  runtime: dsl
+  parameters:
+  - name: message
+    type: string
+    display: 'The message to print'
+    required: true
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "message",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.message}}"
+          }
+        }
+      ],
+      "name": "echo"
+    }

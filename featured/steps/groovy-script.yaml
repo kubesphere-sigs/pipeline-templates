@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: groovy-script
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Groovy Script"
+    devops.kubesphere.io/descriptionEN: "Groovy Script"
+    step.devops.kubesphere.io/icon: "terminal"
+spec:
+  runtime: dsl
+  parameters:
+    - name: script
+      type: code
+      display: 'Groovy script'
+      required: true
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "scriptBlock",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.script}}"
+          }
+        }
+      ],
+      "name": "script"
+    }
