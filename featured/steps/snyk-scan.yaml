@@ -11,6 +11,7 @@ spec:
     type: credential.devops.kubesphere.io/secret-text
     wrap: true
   container: snyk
+  agent: snyk
   template: |
     snyk auth "$USERNAMEVARIABLE"
     snyk test
