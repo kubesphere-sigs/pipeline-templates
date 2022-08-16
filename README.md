@@ -25,6 +25,7 @@ Template Type: ClusterStepTemplate
 | [Retry](featured/steps/retry.yaml) | Repeatedly run given steps |
 | [Shell](featured/steps/shell.yaml) | You can execute shell commands or windows batch commands in the build. |
 | [Sleep](featured/steps/sleep.yaml) | Pause the process for specific time |
+| [Code Scan with Snyk](featured/steps/snyk-scan.yaml) | Code Scan with Snyk |
 | [SVN Clone](featured/steps/svn-clone.yaml) | SVN Clone |
 | [Timeout](featured/steps/timeout.yaml) | Executes the code inside the block with a determined time out limit. |
 | [waitForQualityGate](featured/steps/waitfor-qauality-gate.yaml) | Executed after performing code analysis |
@@ -46,6 +47,7 @@ Template Type: PodTemplate
 | [go 1.17](featured/jenkins-agents/go-1.17.yaml) | This is a PodTemplate for the Jenkins agent with go 1.17 |
 | [go 1.18](featured/jenkins-agents/go-1.18.yaml) | This is a PodTemplate for the Jenkins agent with go 1.18 |
 | [go 1.19](featured/jenkins-agents/go-1.19.yaml) | This is a PodTemplate for the Jenkins agent with go 1.19 |
+| [Snyk Go 1.17](featured/jenkins-agents/snyk-go-1.17.yaml) | Snyk Go 1.17 |
 
 
 ## Contribution
