@@ -1,0 +1,17 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: snyk-scan
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Code Scan with Snyk"
+    devops.kubesphere.io/descriptionEN: "Code Scan with Snyk"
+spec:
+  runtime: shell
+  secret:
+    type: credential.devops.kubesphere.io/secret-text
+    wrap: true
+  container: snyk
+  agent: snyk
+  template: |
+    snyk auth "$USERNAMEVARIABLE"
+    snyk test
