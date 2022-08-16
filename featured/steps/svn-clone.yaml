@@ -11,10 +11,10 @@ metadata:
 spec:
   runtime: dsl
   parameters:
-    - name: url
+    - name: remote
       type: string
       display: 'SVN URL'
-    - name: secret
+    - name: credentialsId
       type: secret
       display: 'Secret'
   template: |
@@ -24,7 +24,7 @@ spec:
           "key": "scm",
           "value": {
             "isLiteral": false,
-            "value": "[$class: 'SubversionSCM', locations: [[cancelProcessOnExternalsFail: true,  credentialsId: '{{.param.secret}}', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: '{{.param.url}}']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']]"
+            "value": "[$class: 'SubversionSCM', locations: [[cancelProcessOnExternalsFail: true,  credentialsId: '{{.param.credentialsId}}', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: '{{.param.remote}}']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']]"
           }
         },
         {
