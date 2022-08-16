@@ -15,12 +15,16 @@ Template Type: ClusterStepTemplate
 | [Docker build &amp; push](featured/steps/docker-build-push.yaml) | Build and push an image from a Dockerfile |
 | [Docker login](featured/steps/docker-login.yaml) | Docker login |
 | [Echo](featured/steps/echo.yaml) | Print a message |
+| [Stop the Pipeline](featured/steps/error.yaml) | Stop the Pipeline and mark it as be error |
 | [Git Clone](featured/steps/git-clone.yaml) | Git Clone |
 | [Groovy Script](featured/steps/groovy-script.yaml) | Groovy Script |
 | [input](featured/steps/input.yaml) | When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review. |
+| [JUnit Report](featured/steps/junit.yaml) | Prase JUnit report |
 | [Mail](featured/steps/mail.yaml) | Send email |
 | [Pipeline trigger](featured/steps/pipeline-trigger.yaml) | Pipeline trigger step |
+| [Retry](featured/steps/retry.yaml) | Repeatedly run given steps |
 | [Shell](featured/steps/shell.yaml) | You can execute shell commands or windows batch commands in the build. |
+| [Sleep](featured/steps/sleep.yaml) | Pause the process for specific time |
 | [SVN Clone](featured/steps/svn-clone.yaml) | SVN Clone |
 | [Timeout](featured/steps/timeout.yaml) | Executes the code inside the block with a determined time out limit. |
 | [waitForQualityGate](featured/steps/waitfor-qauality-gate.yaml) | Executed after performing code analysis |
