@@ -1,0 +1,25 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: retry
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Retry"
+    devops.kubesphere.io/descriptionEN: "Repeatedly run given steps"
+    step.devops.kubesphere.io/icon: "clock"
+spec:
+  runtime: dsl
+  parameters:
+    - name: count
+      type: number
+      display: 'Count'
+  template: |
+    {
+      "arguments": {
+        "isLiteral": true,
+        "value": {{.param.count}}
+      },
+      "children": [],
+      "name": "retry"
+    }

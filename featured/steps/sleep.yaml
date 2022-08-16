@@ -1,12 +1,12 @@
 apiVersion: devops.kubesphere.io/v1alpha3
 kind: ClusterStepTemplate
 metadata:
-  name: timeout
+  name: jsleep
   labels:
     step.devops.kubesphere.io/category: "general"
   annotations:
-    devops.kubesphere.io/displayNameEN: "Timeout"
-    devops.kubesphere.io/descriptionEN: "Executes the code inside the block with a determined time out limit."
+    devops.kubesphere.io/displayNameEN: "Sleep"
+    devops.kubesphere.io/descriptionEN: "Pause the process for specific time"
     step.devops.kubesphere.io/icon: "clock"
 spec:
   runtime: dsl
@@ -21,29 +21,21 @@ spec:
       display: 'Time'
   template: |
     {
-      "name": "timeout",
       "arguments": [
-        {
-          "key": "unit",
-          "value": {
-            "isLiteral": true,
-            "value": "{{.param.unit}}"
-          }
-        },
-        {
-          "key": "activity",
-          "value": {
-            "isLiteral": true,
-            "value": true
-          }
-        },
         {
           "key": "time",
           "value": {
             "isLiteral": true,
             "value": {{.param.time}}
           }
+        },
+        {
+          "key": "unit",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.unit}}"
+          }
         }
       ],
-      "children": []
+      "name": "jsleep"
     }
