@@ -1,0 +1,29 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: error
+  labels:
+    step.devops.kubesphere.io/category: "general"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Stop the Pipeline"
+    devops.kubesphere.io/descriptionEN: "Stop the Pipeline and mark it as be error"
+    step.devops.kubesphere.io/icon: "clock"
+spec:
+  runtime: dsl
+  parameters:
+    - name: message
+      type: string
+      display: 'Error message'
+  template: |
+    {
+      "arguments": [
+        {
+          "key": "message",
+          "value": {
+            "isLiteral": true,
+            "value": "{{.param.message}}"
+          }
+        }
+      ],
+      "name": "error"
+    }

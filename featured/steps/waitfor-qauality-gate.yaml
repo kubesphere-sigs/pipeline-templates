@@ -1,7 +1,7 @@
 apiVersion: devops.kubesphere.io/v1alpha3
 kind: ClusterStepTemplate
 metadata:
-  name: waitfor-qauality-gate
+  name: waitforqualitygate
   labels:
     step.devops.kubesphere.io/category: "review"
   annotations:

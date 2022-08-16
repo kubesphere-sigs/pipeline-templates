@@ -1,13 +1,13 @@
 apiVersion: devops.kubesphere.io/v1alpha3
 kind: ClusterStepTemplate
 metadata:
-  name: container-switch
+  name: container
   labels:
     step.devops.kubesphere.io/category: "container"
   annotations:
     devops.kubesphere.io/displayNameEN: "Container switch"
     devops.kubesphere.io/descriptionEN: "Specify a container to add nested tasks to execute inside the container"
-    step.devops.kubesphere.io/icon: "terminal"
+    step.devops.kubesphere.io/icon: "container"
 spec:
   runtime: dsl
   container: base
