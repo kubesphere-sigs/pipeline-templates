@@ -13,5 +13,5 @@ spec:
   container: snyk
   agent: snyk
   template: |
-    snyk auth "$USERNAMEVARIABLE"
+    snyk auth $USERNAMEVARIABLE
     snyk test
