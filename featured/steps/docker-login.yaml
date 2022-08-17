@@ -19,4 +19,4 @@ spec:
     display: 'Image register server'
     defaultValue: docker.io
   template: |
-    docker login {{.param.register}} -u"$USERNAMEVARIABLE" -p"$PASSWORDVARIABLE"
+    docker login {{.param.register}} -u$USERNAMEVARIABLE -p$PASSWORDVARIABLE
