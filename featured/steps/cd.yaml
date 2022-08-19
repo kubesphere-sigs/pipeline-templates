@@ -44,7 +44,7 @@ spec:
         {
           "arguments": {
             "isLiteral": false,
-            "value": "${[usernamePassword(credentialsId : '{{.param.secret}}' ,passwordVariable : 'PASS' ,usernameVariable : 'USER')]}"
+            "value": "${[usernamePassword(credentialsId : '{{.param.secret.name}}' ,passwordVariable : 'PASS' ,usernameVariable : 'USER')]}"
           },
           "children": [
             {
