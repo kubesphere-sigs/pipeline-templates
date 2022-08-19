@@ -24,7 +24,7 @@ spec:
           "key": "scm",
           "value": {
             "isLiteral": false,
-            "value": "[$class: 'SubversionSCM', locations: [[cancelProcessOnExternalsFail: true,  credentialsId: '{{.param.credentialsId}}', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: '{{.param.remote}}']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']]"
+            "value": "[$class: 'SubversionSCM', locations: [[cancelProcessOnExternalsFail: true,  credentialsId: '{{.param.credentialsId.name}}', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: '{{.param.remote}}']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']]"
           }
         },
         {

@@ -15,7 +15,7 @@ spec:
       type: string
       display: 'Git URL'
       required: true
-    - name: secret
+    - name: credentialsId
       type: secret
       display: 'Secret'
     - name: branch
@@ -37,7 +37,7 @@ spec:
           "key": "credentialsId",
           "value": {
             "isLiteral": true,
-            "value": "{{.param.secret}}"
+            "value": "{{.param.credentialsId.name}}"
           }
         },
         {
