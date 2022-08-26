@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PodTemplate
+metadata:
+  name: golangci
+  namespace: kubesphere-devops-worker
+  labels:
+    jenkins.agent.pod: 'true'
+  annotations:
+    jenkins.agent.labels: "golangci"
+    inherit.from: "base"
+    devops.kubesphere.io/displayNameEN: 'Fast linters Runner for Go'
+    devops.kubesphere.io/descriptionEN: 'Fast linters Runner for Go'
+template:
+  metadata:
+    name: golangci
+  spec:
+    volumes:
+      - name: docker
+        hostPath:
+          path: /var/run/docker.sock
+    containers:
+      - name: golangci
+        image: golangci/golangci-lint:v1.49.0
+        command: ["cat"]
+        args: [""]
+        volumeMounts:
+          - name: docker
+            mountPath: /var/run/docker.sock

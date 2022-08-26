@@ -1,0 +1,14 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: golangci
+  labels:
+    step.devops.kubesphere.io/category: "review"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Fast linters Runner for Go"
+    devops.kubesphere.io/descriptionEN: "Fast linters Runner for Go"
+spec:
+  runtime: shell
+  container: golangci
+  template: |
+    golangci-lint run ./... -v
