@@ -26,6 +26,12 @@ spec:
     type: string
     display: 'Image tag name'
     defaultValue: latest
+  - name: isPush
+    type: bool
+    display: 'Is push image'
+    defaultValue: 'true'
   template: |
     docker build {{.param.context}} -t {{.param.image}}:{{.param.tag}}
+    {{if eq .param.isPush "true"}}
     docker push {{.param.image}}:{{.param.tag}}
+    {{end}}
