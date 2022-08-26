@@ -1,0 +1,14 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: skywalking-eyes
+  labels:
+    step.devops.kubesphere.io/category: "review"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Check license with skywalking-eyes"
+    devops.kubesphere.io/descriptionEN: "Check license with skywalking-eyes"
+spec:
+  runtime: shell
+  container: skywalking-eyes
+  template: |
+    license-eye header check

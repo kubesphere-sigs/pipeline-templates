@@ -10,7 +10,6 @@ metadata:
     step.devops.kubesphere.io/icon: "container"
 spec:
   runtime: dsl
-  container: base
   parameters:
   - name: name
     type: string

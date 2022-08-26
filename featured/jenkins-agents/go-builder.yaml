@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: PodTemplate
+metadata:
+  name: go-builder
+  namespace: kubesphere-devops-worker
+  labels:
+    jenkins.agent.pod: 'true'
+  annotations:
+    jenkins.agent.labels: "go-builder go"
+    inherit.from: "base"
+    devops.kubesphere.io/displayNameEN: 'Golang builder'
+    devops.kubesphere.io/descriptionEN: 'Golang builder'
+template:
+  metadata:
+    name: go-builder
+  spec:
+    volumes:
+      - name: docker
+        hostPath:
+          path: /var/run/docker.sock
+      - name: gocache
+        hostPath:
+          path: /var/data/jenkins_go_cache
+      - name: sonarcache
+        hostPath:
+          path: /var/data/jenkins_sonar_cache
+    containers:
+      - name: snyk
+        image: snyk/snyk:golang-1.17
+        command: ["cat"]
+        args: [""]
+        volumeMounts:
+          - name: docker
+            mountPath: /var/run/docker.sock
+          - name: gocache
+            mountPath: /home/jenkins/go/pkg
+      - name: golangci
+        image: golangci/golangci-lint:v1.49.0
+        command: ["cat"]
+        args: [""]
+        volumeMounts:
+          - name: docker
+            mountPath: /var/run/docker.sock
+      - name: go
+        image: golang:1.17.0
+        command: ["cat"]
+        args: [""]
+        volumeMounts:
+          - name: docker
+            mountPath: /var/run/docker.sock
+          - name: gocache
+            mountPath: /home/jenkins/go/pkg
+          - name: sonarcache
+            mountPath: /root/.sonar/cache
+      - name: skywalking-eyes
+        image: apache/skywalking-eyes:0.4.0
+        command: ["cat"]
+        args: [""]
+        volumeMounts:
+          - name: docker
+            mountPath: /var/run/docker.sock
