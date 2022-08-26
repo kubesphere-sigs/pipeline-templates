@@ -17,6 +17,7 @@ Template Type: ClusterStepTemplate
 | [Echo](featured/steps/echo.yaml) | Print a message |
 | [Stop the Pipeline](featured/steps/error.yaml) | Stop the Pipeline and mark it as be error |
 | [Git Clone](featured/steps/git-clone.yaml) | Git Clone |
+| [Fast linters Runner for Go](featured/steps/golangci.yaml) | Fast linters Runner for Go |
 | [Groovy Script](featured/steps/groovy-script.yaml) | Groovy Script |
 | [input](featured/steps/input.yaml) | When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review. |
 | [JUnit Report](featured/steps/junit.yaml) | Prase JUnit report |
@@ -24,6 +25,7 @@ Template Type: ClusterStepTemplate
 | [Pipeline trigger](featured/steps/pipeline-trigger.yaml) | Pipeline trigger step |
 | [Retry](featured/steps/retry.yaml) | Repeatedly run given steps |
 | [Shell](featured/steps/shell.yaml) | You can execute shell commands or windows batch commands in the build. |
+| [Check license with skywalking-eyes](featured/steps/skywalking-eyes.yaml) | Check license with skywalking-eyes |
 | [Sleep](featured/steps/sleep.yaml) | Pause the process for specific time |
 | [Code Scan with Snyk](featured/steps/snyk-scan.yaml) | Code Scan with Snyk |
 | [SVN Clone](featured/steps/svn-clone.yaml) | SVN Clone |
@@ -47,6 +49,9 @@ Template Type: PodTemplate
 | [go 1.17](featured/jenkins-agents/go-1.17.yaml) | This is a PodTemplate for the Jenkins agent with go 1.17 |
 | [go 1.18](featured/jenkins-agents/go-1.18.yaml) | This is a PodTemplate for the Jenkins agent with go 1.18 |
 | [go 1.19](featured/jenkins-agents/go-1.19.yaml) | This is a PodTemplate for the Jenkins agent with go 1.19 |
+| [Golang builder](featured/jenkins-agents/go-builder.yaml) | Golang builder |
+| [Fast linters Runner for Go](featured/jenkins-agents/golangci-lint.yaml) | Fast linters Runner for Go |
+| [A full-featured license tool](featured/jenkins-agents/skywalking-eyes.yaml) | A full-featured license tool |
 | [Snyk Go 1.17](featured/jenkins-agents/snyk-go-1.17.yaml) | Snyk Go 1.17 |
 
 
