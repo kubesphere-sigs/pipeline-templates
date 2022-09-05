@@ -1,0 +1,52 @@
+pipeline {
+  agent {
+    node {
+      label 'k3d'
+    }
+
+  }
+  stages {
+    stage('Setup k3d') {
+      agent none
+      steps {
+        container('k3d') {
+          sh 'k3d cluster create'
+        }
+      }
+    }
+
+    stage('Load CRDs') {
+      agent none
+      steps {
+        git(url: 'https://github.com/kubesphere/ks-devops', credentialsId: '', branch: 'master', changelog: true, poll: false)
+        
+        container('k3d') {
+        sh '''ls -hal
+kubectl apply -f config/crd/bases'''
+        }
+      }
+    }
+
+    stage('Valid') {
+      agent none
+      steps {
+        git(url: 'https://github.com/kubesphere-sigs/pipeline-templates', credentialsId: '', branch: 'main', changelog: true, poll: false)
+        container('k3d') {
+          sh '''ls -hal
+
+kubectl apply -f featured/steps --dry-run=client
+kubectl apply -f featured/jenkins-agents --dry-run=client
+kubectl apply -f featured/pipelines --dry-run=client'''
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      container('k3d') {
+        sh 'k3d cluster delete'
+      }
+    }
+  }
+}
