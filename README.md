@@ -21,6 +21,7 @@ Template Type: ClusterStepTemplate
 | [Groovy Script](featured/steps/groovy-script.yaml) | Groovy Script |
 | [input](featured/steps/input.yaml) | When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review. |
 | [JUnit Report](featured/steps/junit.yaml) | Prase JUnit report |
+| [Setup k3s cluster](featured/steps/k3d.yaml) | Setup k3s cluster |
 | [Mail](featured/steps/mail.yaml) | Send email |
 | [Pipeline trigger](featured/steps/pipeline-trigger.yaml) | Pipeline trigger step |
 | [Retry](featured/steps/retry.yaml) | Repeatedly run given steps |
@@ -51,6 +52,7 @@ Template Type: PodTemplate
 | [go 1.19](featured/jenkins-agents/go-1.19.yaml) | This is a PodTemplate for the Jenkins agent with go 1.19 |
 | [Golang builder](featured/jenkins-agents/go-builder.yaml) | Golang builder |
 | [Fast linters Runner for Go](featured/jenkins-agents/golangci-lint.yaml) | Fast linters Runner for Go |
+| [k3d 5.3.0](featured/jenkins-agents/k3d-5.3.yaml) | k3d 5.3.0 |
 | [A full-featured license tool](featured/jenkins-agents/skywalking-eyes.yaml) | A full-featured license tool |
 | [Snyk Go 1.17](featured/jenkins-agents/snyk-go-1.17.yaml) | Snyk Go 1.17 |
 
