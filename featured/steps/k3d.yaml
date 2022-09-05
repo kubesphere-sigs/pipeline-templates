@@ -1,0 +1,14 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: k3d
+  labels:
+    step.devops.kubesphere.io/category: "container"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "Setup k3s cluster"
+    devops.kubesphere.io/descriptionEN: "Setup k3s cluster"
+spec:
+  runtime: shell
+  container: k3d
+  template: |
+    k3d cluster create

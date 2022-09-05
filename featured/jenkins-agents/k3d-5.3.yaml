@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PodTemplate
+metadata:
+  name: k3d-53
+  namespace: kubesphere-devops-worker
+  labels:
+    jenkins.agent.pod: 'true'
+  annotations:
+    jenkins.agent.labels: "k3d k3d-5.3.0"
+    inherit.from: ""
+    devops.kubesphere.io/displayNameEN: 'k3d 5.3.0'
+    devops.kubesphere.io/descriptionEN: 'k3d 5.3.0'
+template:
+  metadata:
+    name: k3d-53
+  spec:
+    containers:
+      - name: k3d
+        image: rancher/k3d:5.3.0-dind
+        args: [""]
+        securityContext:
+          privileged: true
