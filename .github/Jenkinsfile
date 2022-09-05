@@ -20,9 +20,14 @@ pipeline {
       steps {
         git(url: 'https://github.com/kubesphere/ks-devops', credentialsId: '', branch: 'master', changelog: true, poll: false)
         
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ks-devops'], [$class: 'CloneOption', depth: 1, noTags: false, reference: '', shallow: true]],
+            userRemoteConfigs: [[url: 'https://github.com/kubesphere/ks-devops']]
+        ])
+
         container('k3d') {
         sh '''ls -hal
-kubectl apply -f config/crd/bases'''
+kubectl apply -f ks-devops/config/crd/bases'''
         }
       }
     }
@@ -30,7 +35,6 @@ kubectl apply -f config/crd/bases'''
     stage('Valid') {
       agent none
       steps {
-        git(url: 'https://github.com/kubesphere-sigs/pipeline-templates', credentialsId: '', branch: 'main', changelog: true, poll: false)
         container('k3d') {
           sh '''ls -hal
 
