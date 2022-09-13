@@ -36,9 +36,9 @@ kubectl apply -f ks-devops/config/crd/bases'''
         container('k3d') {
           sh '''ls -hal
 
-kubectl apply -f ks-devops/featured/steps --dry-run=client
-kubectl apply -f ks-devops/featured/jenkins-agents --dry-run=client
-kubectl apply -f ks-devops/featured/pipelines --dry-run=client'''
+kubectl apply -f featured/steps --dry-run=client
+kubectl apply -f featured/jenkins-agents --dry-run=client
+kubectl apply -f featured/pipelines --dry-run=client'''
         }
       }
     }
