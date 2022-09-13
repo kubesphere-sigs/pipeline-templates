@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: PodTemplate
+metadata:
+  name: buildkit
+  namespace: kubesphere-devops-worker
+  labels:
+    jenkins.agent.pod: 'true'
+  annotations:
+    jenkins.agent.labels: "buildkit"
+    inherit.from: ""
+    devops.kubesphere.io/displayNameEN: 'buildkit'
+    devops.kubesphere.io/descriptionEN: 'buildkit'
+template:
+  metadata:
+    name: buildkit
+  spec:
+    containers:
+      - name: go
+        image: moby/buildkit:v0.10.4
+        command: ["/bin/sh"]
+        args: [""]
+        securityContext:
+          privileged: true
