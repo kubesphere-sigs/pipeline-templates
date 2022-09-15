@@ -1,0 +1,30 @@
+apiVersion: devops.kubesphere.io/v1alpha3
+kind: ClusterStepTemplate
+metadata:
+  name: buildkit
+  labels:
+    step.devops.kubesphere.io/category: "container"
+  annotations:
+    devops.kubesphere.io/displayNameEN: "buildkit"
+    devops.kubesphere.io/descriptionEN: "buildkit"
+spec:
+  runtime: shell
+  container: buildkit
+  parameters:
+  - name: image
+    type: string
+    display: 'Image name'
+  - name: context
+    type: string
+    display: 'Image build context'
+    defaultValue: '.'
+  - name: push
+    type: bool
+    display: 'Indicate if push the image'
+    defaultValue: 'false'
+  - name: registry
+    type: string
+    display: 'Image registry address'
+    defaultValue: 'docker.io'
+  template: |
+    buildctl-daemonless.sh build --frontend dockerfile.v0 --local context={{.param.secret.context}} --local dockerfile=. --output type=image,name={{.param.secret.registry}}/{{.param.secret.image}},push={{.param.secret.push}}

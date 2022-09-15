@@ -18,8 +18,6 @@ pipeline {
     stage('Load CRDs') {
       agent none
       steps {
-        git(url: 'https://github.com/kubesphere/ks-devops', credentialsId: '', branch: 'master', changelog: true, poll: false)
-        
         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
             extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ks-devops'], [$class: 'CloneOption', depth: 1, noTags: false, reference: '', shallow: true]],
             userRemoteConfigs: [[url: 'https://github.com/kubesphere/ks-devops']]
