@@ -10,6 +10,7 @@ Template Type: ClusterStepTemplate
 | Name | Description |
 |---|---|
 | [Archive artifacts](featured/steps/archive-artifacts.yaml) | Archive artifacts of the build records |
+| [buildkit](featured/steps/buildkit.yaml) | buildkit |
 | [CD](featured/steps/cd.yaml) | Update image information using continuous deployment. |
 | [Container switch](featured/steps/container-switch.yaml) | Specify a container to add nested tasks to execute inside the container |
 | [Docker build &amp; push](featured/steps/docker-build-push.yaml) | Build and push an image from a Dockerfile |
@@ -47,6 +48,7 @@ Template Type: PodTemplate
 
 | Name | Description |
 |---|---|
+| [buildkit](featured/jenkins-agents/buildkit.yaml) | buildkit |
 | [go 1.17](featured/jenkins-agents/go-1.17.yaml) | This is a PodTemplate for the Jenkins agent with go 1.17 |
 | [go 1.18](featured/jenkins-agents/go-1.18.yaml) | This is a PodTemplate for the Jenkins agent with go 1.18 |
 | [go 1.19](featured/jenkins-agents/go-1.19.yaml) | This is a PodTemplate for the Jenkins agent with go 1.19 |
