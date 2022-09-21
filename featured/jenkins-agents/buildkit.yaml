@@ -7,7 +7,7 @@ metadata:
     jenkins.agent.pod: 'true'
   annotations:
     jenkins.agent.labels: "buildkit"
-    inherit.from: ""
+    inherit.from: "base"
     devops.kubesphere.io/displayNameEN: 'buildkit'
     devops.kubesphere.io/descriptionEN: 'buildkit'
 template:
