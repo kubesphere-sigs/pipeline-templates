@@ -15,7 +15,7 @@ template:
     name: buildkit
   spec:
     containers:
-      - name: go
+      - name: buildkit
         image: moby/buildkit:v0.10.4
         command: ["/bin/sh"]
         args: [""]
