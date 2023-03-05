@@ -5,14 +5,16 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "review"
   annotations:
-    devops.kubesphere.io/displayNameEN: "withSonarQubeEnv"
-    devops.kubesphere.io/descriptionEN: "Quickly locate potential or obvious errors in your code"
+    devops.kubesphere.io/descriptionZH: "加载SonarQube配置代码块（在其中运行代码检查）"
+    devops.kubesphere.io/displayNameZH: "SonarQube配置"
+    devops.kubesphere.io/descriptionEN: "Load a code block with sonarqube configuration environments(run code-review in it)"
+    devops.kubesphere.io/displayNameEN: "WithSonarQubeEnv"
     step.devops.kubesphere.io/icon: "terminal"
 spec:
   runtime: dsl
   parameters:
     - name: config
-      type: code
+      type: string
       display: 'SonarQube Config Name'
       required: true
   template: |

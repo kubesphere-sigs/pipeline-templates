@@ -5,6 +5,8 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "general"
   annotations:
+    devops.kubesphere.io/descriptionZH: "保存构建过程中生成的制品"
+    devops.kubesphere.io/displayNameZH: "保存制品"
     devops.kubesphere.io/displayNameEN: "Archive artifacts"
     devops.kubesphere.io/descriptionEN: "Archive artifacts of the build records"
     step.devops.kubesphere.io/icon: "terminal"
@@ -13,7 +15,7 @@ spec:
   parameters:
   - name: artifacts
     type: string
-    display: 'Artifacts file path'
+    display: 'The path of artifacts'
     required: true
   template: |
     {

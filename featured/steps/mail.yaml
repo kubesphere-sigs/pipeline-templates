@@ -5,8 +5,10 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "general"
   annotations:
+    devops.kubesphere.io/displayNameZH: "邮件"
+    devops.kubesphere.io/descriptionZH: "通过邮件发送消息"
     devops.kubesphere.io/displayNameEN: "Mail"
-    devops.kubesphere.io/descriptionEN: "Send email"
+    devops.kubesphere.io/descriptionEN: "Send message by email"
     step.devops.kubesphere.io/icon: "mail"
 spec:
   runtime: dsl

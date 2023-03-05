@@ -5,9 +5,10 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "scm"
   annotations:
+    devops.kubesphere.io/displayNameZH: "SVN Clone"
+    devops.kubesphere.io/descriptionZH: "拉取SVN仓库的代码"
     devops.kubesphere.io/displayNameEN: "SVN Clone"
-    devops.kubesphere.io/descriptionEN: "SVN Clone"
-    step.devops.kubesphere.io/icon: "svn"
+    devops.kubesphere.io/descriptionEN: "Pull code from the SVN-Repo"
 spec:
   runtime: dsl
   parameters:

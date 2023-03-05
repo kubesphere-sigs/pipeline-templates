@@ -5,8 +5,10 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "review"
   annotations:
+    devops.kubesphere.io/displayNameZH: "input"
+    devops.kubesphere.io/descriptionZH: "流水线运行至此任务将会暂停，审核后可选择继续或终止"
     devops.kubesphere.io/displayNameEN: "input"
-    devops.kubesphere.io/descriptionEN: "When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review."
+    devops.kubesphere.io/descriptionEN: "When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review"
     step.devops.kubesphere.io/icon: "rocket"
     step.devops.kubesphere.io/tip: "When the pipeline runs here, the task will be suspended, and the creator and @somebody can choose to continue or terminate the pipeline."
 spec:

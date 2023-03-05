@@ -5,8 +5,10 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "general"
   annotations:
+    devops.kubesphere.io/displayNameZH: "超时"
+    devops.kubesphere.io/descriptionZH: "配置代码块内代码执行的超时限制"
     devops.kubesphere.io/displayNameEN: "Timeout"
-    devops.kubesphere.io/descriptionEN: "Executes the code inside the block with a determined time out limit."
+    devops.kubesphere.io/descriptionEN: "Executes the code inside the block with a determined time out limit"
     step.devops.kubesphere.io/icon: "clock"
 spec:
   runtime: dsl

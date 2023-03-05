@@ -5,8 +5,10 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "scm"
   annotations:
+    devops.kubesphere.io/displayNameZH: "Git Clone"
+    devops.kubesphere.io/descriptionZH: "拉取Git仓库的代码"
     devops.kubesphere.io/displayNameEN: "Git Clone"
-    devops.kubesphere.io/descriptionEN: "Git Clone"
+    devops.kubesphere.io/descriptionEN: "Pull code from Git-Repo"
     step.devops.kubesphere.io/icon: "git"
 spec:
   runtime: dsl

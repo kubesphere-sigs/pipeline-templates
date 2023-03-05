@@ -3,10 +3,12 @@ kind: ClusterStepTemplate
 metadata:
   name: cd
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "container"
   annotations:
     devops.kubesphere.io/displayNameEN: "CD"
-    devops.kubesphere.io/descriptionEN: "Update image information using continuous deployment."
+    devops.kubesphere.io/descriptionEN: "Update image information using continuous deployment"
+    devops.kubesphere.io/descriptionZH: "通过持续部署更新镜像信息"
+    devops.kubesphere.io/displayNameZH: "CD"
     step.devops.kubesphere.io/icon: "rocket"
 spec:
   runtime: dsl

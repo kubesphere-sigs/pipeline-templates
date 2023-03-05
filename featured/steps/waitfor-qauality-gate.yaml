@@ -5,8 +5,10 @@ metadata:
   labels:
     step.devops.kubesphere.io/category: "review"
   annotations:
-    devops.kubesphere.io/displayNameEN: "waitForQualityGate"
-    devops.kubesphere.io/descriptionEN: "Executed after performing code analysis"
+    devops.kubesphere.io/descriptionZH: "等待代码质量检查完成并返回结果"
+    devops.kubesphere.io/displayNameZH: "代码质量检查"
+    devops.kubesphere.io/descriptionEN: "Wait for SonarQube analysis to be completed and return quality gate status"
+    devops.kubesphere.io/displayNameEN: "WaitForQualityGate"
     step.devops.kubesphere.io/icon: "terminal"
     step.devops.kubesphere.io/tip: "Code quality check standards are derived from SonarQube's Quality Gate. If you need to customize the standards, go to SonarQube settings."
 spec:
@@ -14,7 +16,7 @@ spec:
   parameters:
     - name: abortPipeline
       type: bool
-      display: 'SonarQube Config Name'
+      display: AbortPipeline
   template: |
     {
       "arguments": [
