@@ -3,10 +3,10 @@ kind: ClusterStepTemplate
 metadata:
   name: withsonarqubeenv
   labels:
-    step.devops.kubesphere.io/category: "review"
+    step.devops.kubesphere.io/category: "Review"
   annotations:
-    devops.kubesphere.io/descriptionZH: "加载SonarQube配置代码块（在其中运行代码检查）"
-    devops.kubesphere.io/displayNameZH: "SonarQube配置"
+    devops.kubesphere.io/descriptionZH: "加载附带 SonarQube 配置的代码块（在其中运行代码检查））"
+    devops.kubesphere.io/displayNameZH: "SonarQube 配置"
     devops.kubesphere.io/descriptionEN: "Load a code block with sonarqube configuration environments(run code-review in it)"
     devops.kubesphere.io/displayNameEN: "WithSonarQubeEnv"
     step.devops.kubesphere.io/icon: "terminal"
@@ -15,7 +15,7 @@ spec:
   parameters:
     - name: config
       type: string
-      display: 'SonarQube Config Name'
+      display: 'Config Name'
       required: true
   template: |
     {

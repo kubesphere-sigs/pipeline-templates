@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: error
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
     devops.kubesphere.io/displayNameEN: "Stop the Pipeline"
     devops.kubesphere.io/descriptionEN: "Stop the Pipeline and mark it as be error"

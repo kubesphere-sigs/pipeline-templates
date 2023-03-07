@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: shell
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
     devops.kubesphere.io/displayNameZH: "Shell"
     devops.kubesphere.io/descriptionZH: "在构建中执行 shell 命令或者 windows 的 batch 命令"

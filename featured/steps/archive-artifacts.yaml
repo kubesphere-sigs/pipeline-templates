@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: archiveartifacts
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
     devops.kubesphere.io/descriptionZH: "保存构建过程中生成的制品"
     devops.kubesphere.io/displayNameZH: "保存制品"
@@ -15,7 +15,7 @@ spec:
   parameters:
   - name: artifacts
     type: string
-    display: 'The path of artifacts'
+    display: 'Artifacts Path'
     required: true
   template: |
     {

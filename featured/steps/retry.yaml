@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: retry
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
     devops.kubesphere.io/displayNameEN: "Retry"
     devops.kubesphere.io/descriptionEN: "Repeatedly run given steps"

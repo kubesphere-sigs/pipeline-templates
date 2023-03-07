@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: junit
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
     devops.kubesphere.io/displayNameEN: "JUnit Report"
     devops.kubesphere.io/descriptionEN: "Prase JUnit report"

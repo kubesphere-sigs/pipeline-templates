@@ -3,7 +3,7 @@ kind: ClusterStepTemplate
 metadata:
   name: jsleep
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
     devops.kubesphere.io/displayNameEN: "Sleep"
     devops.kubesphere.io/descriptionEN: "Pause the process for specific time"
@@ -11,14 +11,15 @@ metadata:
 spec:
   runtime: dsl
   parameters:
+    - name: time
+      type: number
+      display: 'Time'
+      required: true
     - name: unit
       type: enum
       defaultValue: 'SECONDS'
       options: '[{"label":"Seconds","value":"SECONDS"},{"label":"Minutes","value":"MINUTES"},{"label":"Hours","value":"HOURS"}]'
       display: 'Unit'
-    - name: time
-      type: number
-      display: 'Time'
   template: |
     {
       "arguments": [

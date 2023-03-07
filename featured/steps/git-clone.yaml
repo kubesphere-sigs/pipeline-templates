@@ -3,10 +3,10 @@ kind: ClusterStepTemplate
 metadata:
   name: git
   labels:
-    step.devops.kubesphere.io/category: "scm"
+    step.devops.kubesphere.io/category: "SCM"
   annotations:
     devops.kubesphere.io/displayNameZH: "Git Clone"
-    devops.kubesphere.io/descriptionZH: "拉取Git仓库的代码"
+    devops.kubesphere.io/descriptionZH: "拉取 Git 仓库的代码"
     devops.kubesphere.io/displayNameEN: "Git Clone"
     devops.kubesphere.io/descriptionEN: "Pull code from Git-Repo"
     step.devops.kubesphere.io/icon: "git"
@@ -15,11 +15,11 @@ spec:
   parameters:
     - name: url
       type: string
-      display: 'Git URL'
+      display: 'URL'
       required: true
     - name: credentialsId
       type: secret
-      display: 'Secret'
+      display: 'Credential Name'
     - name: branch
       type: string
       display: 'Branch'
