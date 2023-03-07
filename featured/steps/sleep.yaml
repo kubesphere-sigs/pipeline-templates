@@ -1,10 +1,12 @@
 apiVersion: devops.kubesphere.io/v1alpha3
 kind: ClusterStepTemplate
 metadata:
-  name: jsleep
+  name: sleep
   labels:
     step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "Sleep"
+    devops.kubesphere.io/descriptionZH: "睡眠一段时间"
     devops.kubesphere.io/displayNameEN: "Sleep"
     devops.kubesphere.io/descriptionEN: "Pause the process for specific time"
     step.devops.kubesphere.io/icon: "clock"
