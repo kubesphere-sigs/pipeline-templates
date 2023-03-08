@@ -3,10 +3,12 @@ kind: ClusterStepTemplate
 metadata:
   name: script
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "Groovy Script"
+    devops.kubesphere.io/descriptionZH: "执行 groovy 脚本"
     devops.kubesphere.io/displayNameEN: "Groovy Script"
-    devops.kubesphere.io/descriptionEN: "Groovy Script"
+    devops.kubesphere.io/descriptionEN: "Execute groovy script"
     step.devops.kubesphere.io/icon: "terminal"
 spec:
   runtime: dsl

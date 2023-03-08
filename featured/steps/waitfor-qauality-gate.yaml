@@ -3,10 +3,12 @@ kind: ClusterStepTemplate
 metadata:
   name: waitforqualitygate
   labels:
-    step.devops.kubesphere.io/category: "review"
+    step.devops.kubesphere.io/category: "Review"
   annotations:
-    devops.kubesphere.io/displayNameEN: "waitForQualityGate"
-    devops.kubesphere.io/descriptionEN: "Executed after performing code analysis"
+    devops.kubesphere.io/descriptionZH: "代码质量检查"
+    devops.kubesphere.io/displayNameZH: "运行代码质量检查（SonarQube）"
+    devops.kubesphere.io/descriptionEN: "Execute code analysis(SonarQube)"
+    devops.kubesphere.io/displayNameEN: "WaitForQualityGate"
     step.devops.kubesphere.io/icon: "terminal"
     step.devops.kubesphere.io/tip: "Code quality check standards are derived from SonarQube's Quality Gate. If you need to customize the standards, go to SonarQube settings."
 spec:
@@ -14,7 +16,8 @@ spec:
   parameters:
     - name: abortPipeline
       type: bool
-      display: 'SonarQube Config Name'
+      display: "AbortPipeline if quality gate status is not green"
+      defaultValue: "false"
   template: |
     {
       "arguments": [

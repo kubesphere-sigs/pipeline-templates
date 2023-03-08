@@ -3,17 +3,19 @@ kind: ClusterStepTemplate
 metadata:
   name: error
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
-    devops.kubesphere.io/displayNameEN: "Stop the Pipeline"
-    devops.kubesphere.io/descriptionEN: "Stop the Pipeline and mark it as be error"
+    devops.kubesphere.io/displayNameZH: "异常退出"
+    devops.kubesphere.io/descriptionZH: "错误信号，异常退出流水线"
+    devops.kubesphere.io/displayNameEN: "Exit With Error"
+    devops.kubesphere.io/descriptionEN: "Signals an error, exit the Pipeline and mark it as failed"
     step.devops.kubesphere.io/icon: "clock"
 spec:
   runtime: dsl
   parameters:
     - name: message
       type: string
-      display: 'Error message'
+      display: 'Error Message'
   template: |
     {
       "arguments": [

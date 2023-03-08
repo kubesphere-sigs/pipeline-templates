@@ -3,17 +3,19 @@ kind: ClusterStepTemplate
 metadata:
   name: container
   labels:
-    step.devops.kubesphere.io/category: "container"
+    step.devops.kubesphere.io/category: "Container"
   annotations:
-    devops.kubesphere.io/displayNameEN: "Container switch"
+    devops.kubesphere.io/displayNameEN: "Specify Container"
     devops.kubesphere.io/descriptionEN: "Specify a container to add nested tasks to execute inside the container"
+    devops.kubesphere.io/displayNameZH: "指定容器"
+    devops.kubesphere.io/descriptionZH: "指定执行任务的容器"
     step.devops.kubesphere.io/icon: "container"
 spec:
   runtime: dsl
   parameters:
   - name: name
     type: string
-    display: 'Container name in a Pod'
+    display: 'Container Name'
   template: |
     {
       "arguments": {

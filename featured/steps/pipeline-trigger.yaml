@@ -3,29 +3,31 @@ kind: ClusterStepTemplate
 metadata:
   name: build
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "触发流水线"
+    devops.kubesphere.io/descriptionZH: "触发运行指定的流水线"
     devops.kubesphere.io/displayNameEN: "Pipeline trigger"
-    devops.kubesphere.io/descriptionEN: "Pipeline trigger step"
+    devops.kubesphere.io/descriptionEN: "Trigger a new build for a given job"
     step.devops.kubesphere.io/icon: "terminal"
 spec:
   runtime: dsl
   parameters:
   - name: job
     type: pipeline
-    display: 'Target Pipeline name'
+    display: 'Target Pipeline Name'
     required: true
   - name: quietPeriod
     type: number
-    display: 'Quiet period'
+    display: 'Quiet Period'
     defaultValue: "0"
   - name: wait
     type: bool
-    display: 'Wait for completion'
+    display: 'Wait For Completion'
     defaultValue: "true"
   - name: propagate
     type: bool
-    display: 'Propagate errors'
+    display: 'Propagate Errors'
     defaultValue: "true"
   template: |
     {

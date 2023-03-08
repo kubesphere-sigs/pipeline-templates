@@ -3,8 +3,10 @@ kind: ClusterStepTemplate
 metadata:
   name: retry
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "重试"
+    devops.kubesphere.io/descriptionZH: "重试执行指定的步骤"
     devops.kubesphere.io/displayNameEN: "Retry"
     devops.kubesphere.io/descriptionEN: "Repeatedly run given steps"
     step.devops.kubesphere.io/icon: "clock"
@@ -13,7 +15,7 @@ spec:
   parameters:
     - name: count
       type: number
-      display: 'Count'
+      display: 'Retry Count'
   template: |
     {
       "arguments": {

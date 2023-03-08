@@ -3,10 +3,12 @@ kind: ClusterStepTemplate
 metadata:
   name: shell
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "Shell"
+    devops.kubesphere.io/descriptionZH: "在构建中执行 shell 命令或者 windows 的 batch 命令"
     devops.kubesphere.io/displayNameEN: "Shell"
-    devops.kubesphere.io/descriptionEN: "You can execute shell commands or windows batch commands in the build."
+    devops.kubesphere.io/descriptionEN: "Execute shell commands or windows batch commands in the build"
     step.devops.kubesphere.io/icon: "terminal"
 spec:
   runtime: shell

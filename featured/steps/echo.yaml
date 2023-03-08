@@ -3,10 +3,12 @@ kind: ClusterStepTemplate
 metadata:
   name: echo
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "打印消息"
+    devops.kubesphere.io/descriptionZH: "在构建过程中打印消息"
     devops.kubesphere.io/displayNameEN: "Echo"
-    devops.kubesphere.io/descriptionEN: "Print a message"
+    devops.kubesphere.io/descriptionEN: "Print a message in the build"
     step.devops.kubesphere.io/icon: "loudspeaker"
 spec:
   runtime: dsl

@@ -3,22 +3,29 @@ kind: ClusterStepTemplate
 metadata:
   name: timeout
   labels:
-    step.devops.kubesphere.io/category: "general"
+    step.devops.kubesphere.io/category: "General"
   annotations:
+    devops.kubesphere.io/displayNameZH: "超时"
+    devops.kubesphere.io/descriptionZH: "配置块内执行代码的超时限制"
     devops.kubesphere.io/displayNameEN: "Timeout"
-    devops.kubesphere.io/descriptionEN: "Executes the code inside the block with a determined time out limit."
+    devops.kubesphere.io/descriptionEN: "Executes the code inside the block with a determined time out limit"
     step.devops.kubesphere.io/icon: "clock"
 spec:
   runtime: dsl
   parameters:
+    - name: time
+      display: 'Time'
+      type: number
+      required: true
     - name: unit
       type: enum
       defaultValue: 'SECONDS'
       options: '[{"label":"Seconds","value":"SECONDS"},{"label":"Minutes","value":"MINUTES"},{"label":"Hours","value":"HOURS"}]'
       display: 'Unit'
-    - name: time
-      type: number
-      display: 'Time'
+    - name: activity
+      display: 'Timeout after no activity in logs for this block'
+      type: bool
+      defaultValue: 'false'
   template: |
     {
       "name": "timeout",
@@ -34,7 +41,7 @@ spec:
           "key": "activity",
           "value": {
             "isLiteral": true,
-            "value": true
+            "value": .param.activity
           }
         },
         {
