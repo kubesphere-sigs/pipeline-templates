@@ -17,7 +17,7 @@ spec:
     defaultValue: .
   - name: file
     type: string
-    display: 'Dockerfile path'
+    display: 'Dockerfile Location'
     defaultValue: Dockerfile
   - name: image
     type: string

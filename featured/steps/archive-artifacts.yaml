@@ -15,7 +15,7 @@ spec:
   parameters:
   - name: artifacts
     type: string
-    display: 'Artifacts Path'
+    display: 'Artifacts Location'
     required: true
   template: |
     {
