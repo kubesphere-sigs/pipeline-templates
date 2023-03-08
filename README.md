@@ -11,30 +11,30 @@ Template Type: ClusterStepTemplate
 |---|---|
 | [Archive artifacts](featured/steps/archive-artifacts.yaml) | Archive artifacts of the build records |
 | [buildkit](featured/steps/buildkit.yaml) | buildkit |
-| [CD](featured/steps/cd.yaml) | Update image information using continuous deployment. |
-| [Container switch](featured/steps/container-switch.yaml) | Specify a container to add nested tasks to execute inside the container |
+| [CD](featured/steps/cd.yaml) | Update image information using continuous deployment |
+| [Specify Container](featured/steps/container.yaml) | Specify a container to add nested tasks to execute inside the container |
 | [Docker build &amp; push](featured/steps/docker-build-push.yaml) | Build and push an image from a Dockerfile |
 | [Docker login](featured/steps/docker-login.yaml) | Docker login |
-| [Echo](featured/steps/echo.yaml) | Print a message |
-| [Stop the Pipeline](featured/steps/error.yaml) | Stop the Pipeline and mark it as be error |
-| [Git Clone](featured/steps/git-clone.yaml) | Git Clone |
+| [Echo](featured/steps/echo.yaml) | Print a message in the build |
+| [Exit With Error](featured/steps/error.yaml) | Signals an error, exit the Pipeline and mark it as failed |
+| [Git Clone](featured/steps/git-clone.yaml) | Pull code from Git-Repo |
 | [Fast linters Runner for Go](featured/steps/golangci.yaml) | Fast linters Runner for Go |
-| [Groovy Script](featured/steps/groovy-script.yaml) | Groovy Script |
-| [input](featured/steps/input.yaml) | When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review. |
-| [JUnit Report](featured/steps/junit.yaml) | Prase JUnit report |
+| [Groovy Script](featured/steps/groovy-script.yaml) | Execute groovy script |
+| [input](featured/steps/input.yaml) | When the pipeline runs here, this task will be suspended, and you can choose to continue or terminate after the review |
+| [JUnit Report](featured/steps/junit.yaml) | Archive JUnit-formatted test results |
 | [Setup k3s cluster](featured/steps/k3d.yaml) | Setup k3s cluster |
-| [Mail](featured/steps/mail.yaml) | Send email |
-| [Pipeline trigger](featured/steps/pipeline-trigger.yaml) | Pipeline trigger step |
+| [Mail](featured/steps/mail.yaml) | Send message by email |
+| [Pipeline trigger](featured/steps/pipeline-trigger.yaml) | Trigger a new build for a given job |
 | [Retry](featured/steps/retry.yaml) | Repeatedly run given steps |
-| [Shell](featured/steps/shell.yaml) | You can execute shell commands or windows batch commands in the build. |
+| [Shell](featured/steps/shell.yaml) | Execute shell commands or windows batch commands in the build |
 | [Check license with skywalking-eyes](featured/steps/skywalking-eyes.yaml) | Check license with skywalking-eyes |
 | [Sleep](featured/steps/sleep.yaml) | Pause the process for specific time |
 | [Code Scan with Snyk](featured/steps/snyk-scan.yaml) | Code Scan with Snyk |
-| [SVN Clone](featured/steps/svn-clone.yaml) | SVN Clone |
-| [Timeout](featured/steps/timeout.yaml) | Executes the code inside the block with a determined time out limit. |
-| [waitForQualityGate](featured/steps/waitfor-qauality-gate.yaml) | Executed after performing code analysis |
-| [Load credential](featured/steps/with-credential.yaml) | Loading credential into the environment variables |
-| [withSonarQubeEnv](featured/steps/with-sonarQube-env.yaml) | Quickly locate potential or obvious errors in your code |
+| [SVN Clone](featured/steps/svn-clone.yaml) | Pull code from the SVN-Repo |
+| [Timeout](featured/steps/timeout.yaml) | Executes the code inside the block with a determined time out limit |
+| [WaitForQualityGate](featured/steps/waitfor-qauality-gate.yaml) | Execute code analysis(SonarQube) |
+| [WithCredential](featured/steps/with-credential.yaml) | Bind credentials to the environment variables |
+| [WithSonarQubeEnv](featured/steps/with-sonarqube-env.yaml) | Load a code block with sonarqube configuration environments(run code-review in it) |
 
 Template Type: ClusterTemplate
 
