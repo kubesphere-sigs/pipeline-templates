@@ -12,6 +12,7 @@ Template Type: ClusterStepTemplate
 | [Archive artifacts](featured/steps/archive-artifacts.yaml) | Archive artifacts of the build records |
 | [buildkit](featured/steps/buildkit.yaml) | buildkit |
 | [CD](featured/steps/cd.yaml) | Update image information using continuous deployment |
+| [Checkout](featured/steps/checkout.yaml) | check out source code, often used for non-git repository, such as svn |
 | [Specify Container](featured/steps/container.yaml) | Specify a container to add nested tasks to execute inside the container |
 | [Docker build &amp; push](featured/steps/docker-build-push.yaml) | Build and push an image from a Dockerfile |
 | [Docker login](featured/steps/docker-login.yaml) | Docker login |
@@ -30,7 +31,6 @@ Template Type: ClusterStepTemplate
 | [Check license with skywalking-eyes](featured/steps/skywalking-eyes.yaml) | Check license with skywalking-eyes |
 | [Sleep](featured/steps/sleep.yaml) | Pause the process for specific time |
 | [Code Scan with Snyk](featured/steps/snyk-scan.yaml) | Code Scan with Snyk |
-| [SVN Clone](featured/steps/svn-clone.yaml) | Pull code from the SVN-Repo |
 | [Timeout](featured/steps/timeout.yaml) | Executes the code inside the block with a determined time out limit |
 | [WaitForQualityGate](featured/steps/waitfor-qauality-gate.yaml) | Execute code analysis(SonarQube) |
 | [WithCredential](featured/steps/with-credential.yaml) | Bind credentials to the environment variables |
