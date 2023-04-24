@@ -15,7 +15,7 @@ spec:
   parameters:
     - name: testResults
       type: string
-      display: 'Report-File Path'
+      display: 'Test Results Location'
     - name: allowEmptyResults
       type: bool
       display: 'Allow Empty Results'
