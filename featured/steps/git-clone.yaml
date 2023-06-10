@@ -15,7 +15,7 @@ spec:
   parameters:
     - name: url
       type: string
-      display: 'URL'
+      display: 'Repository URL'
       required: true
     - name: credentialsId
       type: secret
@@ -25,6 +25,9 @@ spec:
       display: 'Branch'
       defaultValue: 'master'
       required: true
+    - name: importCodeRepo
+      type: importCodeRepo
+      reactions: '[{"target": "url", "fulfill": {"state": {"value": "{{$self.value?.url}}"}}}, {"target": "credentialsId", "fulfill": {"state": {"value": "{{$self.value?.secret}}"}}}]'
   template: |
     {
       "arguments": [
