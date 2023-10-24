@@ -41,7 +41,7 @@ spec:
           "key": "activity",
           "value": {
             "isLiteral": true,
-            "value": .param.activity
+            "value": {{.param.activity}}
           }
         },
         {
